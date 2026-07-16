@@ -162,25 +162,31 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
 
-// Music control
-const music = document.getElementById("birthdayMusic");
+
+// Floating heart navigation
 const musicToggle = document.getElementById("musicToggle");
-let musicPlaying = false;
+const ourSongSection = document.getElementById("ourSong");
 
-musicToggle.addEventListener("click", async () => {
-  if (!music.querySelector("source")) {
-    musicToggle.textContent = "♡";
-    return;
-  }
+let goToSongNext = true;
 
-  if (musicPlaying) {
-    music.pause();
-    musicToggle.textContent = "♫";
+musicToggle.addEventListener("click", () => {
+  if (goToSongNext) {
+    ourSongSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    musicToggle.textContent = "↑";
+    musicToggle.setAttribute("aria-label", "Return to the top");
   } else {
-    await music.play();
-    musicToggle.textContent = "❚❚";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    musicToggle.textContent = "♡";
+    musicToggle.setAttribute("aria-label", "Go to our song");
   }
 
-  musicPlaying = !musicPlaying;
-  musicToggle.classList.toggle("playing", musicPlaying);
+  goToSongNext = !goToSongNext;
 });
