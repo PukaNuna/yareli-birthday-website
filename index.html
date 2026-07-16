@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A romantic interactive birthday surprise for Yareli.">
+  <title>Yareli's Birthday Website 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-card">
+      <p class="loading-label">Initializing Birthday Protocol...</p>
+      <h2>For Yareli ♡</h2>
+      <div class="loading-status">
+        <span id="loadingStatus">Loading memories...</span>
+        <span id="loadingPercent">0%</span>
+      </div>
+      <div class="loading-track">
+        <div id="loadingBar" class="loading-bar"></div>
+      </div>
+      <div class="loading-log">
+        <p>♡ Preparing surprises</p>
+        <p>🐾 Waking Benito & Balvin</p>
+        <p>🎁 Securing birthday gifts</p>
+      </div>
+      <button id="enterSiteButton" class="primary-btn loading-enter hidden">
+        Access Granted — Enter ♡
+      </button>
+    </div>
+  </div>
+
+  <audio id="birthdayMusic" loop>
+    <!-- Add your own song file and change this to: <source src="song.mp3" type="audio/mpeg"> -->
+  </audio>
+
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle music">♫</button>
+
+  <main>
+    <!-- 1. Welcome -->
+    <section class="panel hero-panel">
+      <div class="stars"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow">A birthday surprise made just for you</p>
+        <h1>Happy Birthday,<br><span>Yareli</span> ♡</h1>
+        <p class="hero-copy">
+          Today is all about you, my love.<br>
+          Get ready for some surprises<br>
+          I made just for you.
+        </p>
+
+        <div class="hero-cats cat-pair">
+          <div class="cat-block">
+            <div class="cat fluffy">
+              <div class="tail"></div><div class="body"></div><div class="chest"></div>
+              <div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div>
+            </div>
+            <span>Benito</span>
+          </div>
+          <div class="cat-block">
+            <div class="cat sleek">
+              <div class="tail"></div><div class="body"></div><div class="chest"></div>
+              <div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div>
+            </div>
+            <span>Balvin</span>
+          </div>
+        </div>
+
+        <a href="#hearts" class="swipe-link">
+          Swipe down to begin
+          <span>⌄</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Hearts -->
+    <section id="hearts" class="panel hearts-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">2 · Collect the Hearts</span>
+        <h2>Collect a little love</h2>
+        <p>Tap all the glowing hearts to continue.</p>
+
+        <div class="heart-counter">
+          Hearts Collected
+          <strong><span id="heartCount">0</span> / 12</strong>
+        </div>
+
+        <div id="heartField" class="heart-field" aria-label="Heart collecting game"></div>
+
+        <div class="cat-helper">
+          <div class="mini-cat">🐾</div>
+          <p>Benito and Balvin are helping you collect them.</p>
+        </div>
+
+        <button id="continueHearts" class="primary-btn hidden" data-scroll="#reasons">
+          Continue 💗
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. Reasons -->
+    <section id="reasons" class="panel reasons-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">3 · Reasons I Love You</span>
+        <h2>Reasons I love you ♡</h2>
+
+        <div class="reason-stage">
+          <button id="prevReason" class="round-btn" aria-label="Previous reason">‹</button>
+
+          <article id="reasonCard" class="reason-card">
+            <span id="reasonNumber" class="reason-number">1</span>
+            <p id="reasonText">You make every day better just by being you.</p>
+            <span class="drawn-heart">♡</span>
+          </article>
+
+          <button id="nextReason" class="round-btn" aria-label="Next reason">›</button>
+        </div>
+
+        <div id="reasonDots" class="reason-dots"></div>
+      </div>
+    </section>
+
+    <!-- 4. Letter -->
+    <section class="panel envelope-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">4 · Open Your Letter</span>
+        <h2>I wrote you a letter...</h2>
+        <p>Tap the envelope to open it 💌</p>
+
+        <button id="envelope" class="envelope" aria-label="Open letter">
+          <span class="letter-peek">For Yareli ♡</span>
+          <span class="envelope-back"></span>
+          <span class="envelope-front"></span>
+          <span class="seal">♥</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="letterSection" class="panel letter-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">5 · The Letter</span>
+        <article class="paper-letter">
+          <h2>To my Yareli, ♡</h2>
+          <p>
+            Happy Birthday, Mi amor. There are no words strong enough to explain
+            how much you mean to me. You are my best friend, my peace, my person,
+            and one of the greatest blessings in my life.
+          </p>
+          <p>
+            Thank you for being you, for choosing me, and for all the memories
+            we have already made. I am so excited for every adventure, laugh,
+            quiet night, and beautiful moment still waiting for us.
+          </p>
+          <p>
+            I love the life we are building together with Benito and Balvin,
+            and I hope today reminds you how loved and special you truly are.
+          </p>
+          <p class="signoff">Forever and always,<br><strong>Alex ♡</strong></p>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="ourSong" class="panel song-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">6 · Our Song</span>
+        <h2>Before you continue... ♡</h2>
+        <p>Press play on our song, then keep scrolling through the rest of your surprise.</p>
+        <div class="youtube-frame">
+          <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/FUHaycnjzKg?si=rDZy69Ea9jDM-Noi"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+        </div>
+        <p class="song-note">Made to be experienced with this song playing 💗</p>
+      </div>
+    </section>
+
+    <!-- 7. Gifts -->
+    <section class="panel gifts-intro-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">7 · Gifts For You</span>
+        <h2>I have some gifts for you 🎁</h2>
+        <p>Tap each gift to open it.</p>
+
+        <div class="gift-buttons">
+          <button class="gift-box gift-purple" data-gift="gift1" aria-label="Open gift 1">
+            <span class="bow">🎀</span>
+            <span class="box">🎁</span>
+          </button>
+          <button class="gift-box gift-pink" data-gift="gift2" aria-label="Open gift 2">
+            <span class="bow">🎀</span>
+            <span class="box">🎁</span>
+          </button>
+          <button class="gift-box gift-gold" data-gift="gift3" aria-label="Open gift 3">
+            <span class="bow">🎀</span>
+            <span class="box">🎁</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="gift1" class="panel gift-reveal-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">8 · Gift 1</span>
+        <article class="polaroid">
+          <h3>A date night just for us ♡</h3>
+          <div class="photo-art rooftop-art">
+            <div class="skyline"></div>
+            <div class="table-glow">🕯️</div>
+          </div>
+          <p>Rooftop dinner in Chicago<br>just like we talked about 💗</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gift2" class="panel gift-reveal-panel personal-gift-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">9 · Gift 2</span>
+        <article class="polaroid">
+          <h3>A special present I chose for you 🎁</h3>
+          <div class="photo-art personal-present-art">
+            <div class="present-large">🎁</div>
+            <div class="sparkles">✦ ✧ ✦</div>
+          </div>
+          <p>
+            Something I personally picked out and bought for you,
+            because you deserve to feel extra special today 💗
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gift3" class="panel gift-reveal-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">10 · Gift 3 (Special)</span>
+        <article class="polaroid">
+          <h3>A cuddle session with the whole family ♡</h3>
+          <div class="photo-art cuddle-art">
+            <div class="cat-pair cuddle-cats">
+              <div class="cat-block">
+                <div class="cat fluffy"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+                <span>Benito</span>
+              </div>
+              <div class="cat-block">
+                <div class="cat sleek"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+                <span>Balvin</span>
+              </div>
+            </div>
+          </div>
+          <p>Me, you, Benito & Balvin.<br>Forever 💗</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. Cats -->
+    <section class="panel cat-message-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">11 · Message from Benito & Balvin</span>
+        <h2>Hey Yareli! 💕</h2>
+        <p>We just want to say...</p>
+
+        <div class="speech-bubble">
+          Happy Birthday to our favorite human! 🐾
+        </div>
+
+        <div class="cat-pair large-cats">
+          <div class="cat-block">
+            <div class="cat fluffy waving"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="paw"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+            <span>Benito</span>
+          </div>
+          <div class="cat-block">
+            <div class="cat sleek waving delayed"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="paw"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+            <span>Balvin</span>
+          </div>
+        </div>
+
+        <p class="cat-signoff">We love you so much! 💗</p>
+      </div>
+    </section>
+
+    <!-- 11. Memories -->
+    <section class="panel memories-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">12 · Our Memories</span>
+        <h2>Our favorite memories ♡</h2>
+
+        <div class="memory-grid">
+          
+          <div class="memory-card">
+              <img src="photos/Photo2.jpg" alt="Alex and Yareli">
+          </div>
+          
+          <div class="memory-card">
+              <img src="photos/PhotoYareli1.jpg" alt="EDC adventure">
+          </div>
+          
+          <div class="memory-card">
+              <img src="photos/BenitoyBalvin.jpg" alt="Benito and Balvin">
+          </div>
+          
+          <div class="memory-card">
+              <img src="photos/Babies.JPG " alt="Another memory">
+          </div>
+          
+          <div class="memory-card">
+              <img src="photos/Benito.JPG" alt="Another memory">
+          </div>
+          
+          <div class="memory-card">
+              <img src="photos/Balvin.jpg" alt="Another memory">
+          </div>
+        </div>
+
+        <button id="memoryButton" class="primary-btn">More memories 💗</button>
+        <p id="memoryMessage" class="memory-message hidden">
+          My favorite memory is every moment I get to spend with you.
+        </p>
+      </div>
+    </section>
+
+    <!-- 12. Future -->
+    <section class="panel future-panel">
+      <div class="section-inner reveal">
+        <span class="step-label">13 · For the Future</span>
+        <h2>I can’t wait for everything we’ll do together ♡</h2>
+
+        <div class="future-grid">
+          <div><span>✈</span><p>More travels</p></div>
+          <div><span>♥</span><p>More dates</p></div>
+          <div><span>☺</span><p>More laughs</p></div>
+          <div><span>⌂</span><p>Our future</p></div>
+        </div>
+
+        <p class="future-message">
+          I’ll be by your side<br>for all of it 💗
+        </p>
+      </div>
+    </section>
+
+    <!-- 13. Finale -->
+    <section class="panel finale-panel">
+      <div id="heartRain"></div>
+      <div class="section-inner reveal">
+
+        <span class="step-label">14 · Final Surprise</span>
+
+        <div class="final-cats cat-pair">
+          <div class="cat-block">
+            <div class="cat fluffy"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+          </div>
+          <div class="cat-block">
+            <div class="cat sleek"><div class="tail"></div><div class="body"></div><div class="chest"></div><div class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye left"></i><i class="eye right"></i><i class="nose"></i></div></div>
+          </div>
+        </div>
+
+        <p>You mean the world to me,</p>
+        <h2>Yareli ♡</h2>
+        <p>Happy Birthday, Mi amor.<br>I love you endlessly.</p>
+        <button id="hugButton" class="primary-btn">Tap for a big hug 💗</button>
+        <p id="hugMessage" class="hug-message hidden">
+          Biggest hug from Alex, Benito & Balvin 🐾
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
